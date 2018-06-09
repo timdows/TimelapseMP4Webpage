@@ -8,7 +8,7 @@ import { Http } from '@angular/http';
 })
 export class OverviewComponent {
 	public mp4Details: MP4Details[];
-	isOpen: boolean = false;
+	selectedMP4: MP4Details;
 
 	constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
 		http.get(baseUrl + 'MP4/GetList').subscribe(result => {
@@ -17,7 +17,7 @@ export class OverviewComponent {
 	}
 
 	openMP4(mp4Detail: MP4Details) {
-		this.isOpen = true;
+		this.selectedMP4 = mp4Detail;
 	}
 }
 

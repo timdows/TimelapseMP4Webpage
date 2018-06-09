@@ -1,4 +1,4 @@
-<table class='table' *ngIf="mp4Details && !isOpen">
+<table class='table' *ngIf="mp4Details && !selectedMP4">
 	<thead>
 		<tr>
 			<th>Name</th>
@@ -12,3 +12,8 @@
 		</tr>
 	</tbody>
 </table>
+
+<video width="320" height="240" controls *ngIf="selectedMP4">
+	<source src="mp4/2014-07-30.mp4" type="video/mp4">
+	Your browser does not support the video tag.
+</video> 
