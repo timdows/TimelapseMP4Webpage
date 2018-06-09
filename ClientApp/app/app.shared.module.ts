@@ -5,21 +5,21 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './components/app/app.component';
-import { HomeComponent } from './components/home/home.component';
+import { OverviewComponent } from './components/overview/overview.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        HomeComponent
+		OverviewComponent
     ],
     imports: [
         CommonModule,
         HttpModule,
         FormsModule,
         RouterModule.forRoot([
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
-            { path: '**', redirectTo: 'home' }
+            { path: '', redirectTo: 'overview', pathMatch: 'full' },
+			{ path: 'overview', component: OverviewComponent },
+			{ path: '**', redirectTo: 'overview' }
         ])
     ]
 })
