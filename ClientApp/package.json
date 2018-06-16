@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "node ./builder/pre-buid.js && ng serve --extract-css",
-    "build": "node ./builder/pre-buid.js && ng build --extract-css",
+    "start": "node ./builder/pre-build.js && ng serve --extract-css",
+    "build": "node ./builder/pre-build.js && ng build --extract-css",
     "build:ssr": "npm run build -- --app=ssr --output-hashing=media",
     "test": "ng test",
     "lint": "ng lint",
