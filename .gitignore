@@ -234,3 +234,4 @@ _Pvt_Extensions
 
 
 MP4/*.mp4
+ClientApp/src/environments/version.ts
