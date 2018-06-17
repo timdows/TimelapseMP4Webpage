@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
 	selector: 'app-mp4-list',
-	templateUrl: './mp4-list.component.html',
+	templateUrl: './mp4-list.component.pug',
 	styleUrls: ['./mp4-list.component.scss']
 })
 export class Mp4ListComponent implements OnInit {

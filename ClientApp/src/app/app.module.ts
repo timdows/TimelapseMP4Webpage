@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { Mp4ListComponent } from './mp4-list/mp4-list.component';
 import { Mp4PlayerComponent } from './mp4-player/mp4-player.component';
@@ -13,7 +12,6 @@ import { Mp4PlayerComponent } from './mp4-player/mp4-player.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
     HomeComponent,
     Mp4ListComponent,
     Mp4PlayerComponent
