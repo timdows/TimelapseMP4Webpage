@@ -14,5 +14,55 @@
 			}
 		}
 		
+		> .activities {
+			display: flex;
+			justify-content: space-between;
+
+			> .activity {
+				background-color: rgba(255, 255, 255, 0.9);
+				width: 25rem;
+				height: 25rem;
+				
+				> .image {
+					width: 100%;
+					height: 80%;
+					background: url(../../assets/build_behind.png);
+					background-size: cover;
+					background-position: top;
+					position: relative;
+
+					&::before {
+						content: '';
+						position: absolute;
+						top: 1rem;
+						left: 1rem;
+						right: 1rem;
+						bottom: 1rem;
+						background: rgba(0, 0, 0, 0.51);
+						opacity: 0;
+						transition: all 0.3s linear;
+					}
+				}
+
+				> .description {
+					height: 20%;
+					padding: 1rem;
+
+					> .title {
+						font-weight: 600;
+					}
+				}
+
+				&:hover {
+					cursor: pointer;
+					
+					> .image {
+						&::before {
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
 	}
 }
