@@ -15,5 +15,13 @@
 	> .thumbnail {
 		width: 18rem;
 		height: 18rem;
+
+		> img {
+			cursor: pointer;
+		}
+
+		> .text {
+			text-align: center;
+		}
 	}
 }

@@ -24,6 +24,11 @@ export class Hour1400ImagesComponent implements OnInit {
 	getImagePath(hour1400File: Hour1400File) {
 		return `${this.baseUrl}api/Hour1400/GetImage?fileName=${hour1400File.fileName}`;
 	}
+
+	showImage(hour1400File: Hour1400File) {
+		var fileName = hour1400File.fileName.replace("_thumb", "");
+		window.open(`${this.baseUrl}api/Hour1400/GetImage?fileName=${fileName}`);
+	}
 }
 
 interface Hour1400File {

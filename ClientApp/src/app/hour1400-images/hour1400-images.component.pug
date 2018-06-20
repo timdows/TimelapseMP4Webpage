@@ -3,5 +3,5 @@
 
 .thumbnails
 	.thumbnail(*ngFor="let hour1400File of hour1400Files")
-		img([src]="getImagePath(hour1400File)")
+		img([src]="getImagePath(hour1400File)", (click)="showImage(hour1400File)")
 		.text {{hour1400File.dateTaken | date:'d MMM y'}}
