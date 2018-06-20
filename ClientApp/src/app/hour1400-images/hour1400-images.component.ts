@@ -7,11 +7,13 @@ import { HttpClient } from '@angular/common/http';
 	styleUrls: ['./hour1400-images.component.scss']
 })
 export class Hour1400ImagesComponent implements OnInit {
-
+	private baseUrl: string;
 	public hour1400Files: Hour1400File[];
 
 	constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-		http.get<Hour1400File[]>(baseUrl + 'api/Hour1400/GetThumbnailList').subscribe(result => {
+		this.baseUrl = baseUrl;
+
+		http.get<Hour1400File[]>(this.baseUrl + 'api/Hour1400/GetThumbnailList').subscribe(result => {
 			this.hour1400Files = result;
 		}, error => console.error(error));
 	}
@@ -19,6 +21,9 @@ export class Hour1400ImagesComponent implements OnInit {
 	ngOnInit() {
 	}
 
+	getImagePath(hour1400File: Hour1400File) {
+		return `${this.baseUrl}api/Hour1400/GetImage?fileName=${hour1400File.fileName}`;
+	}
 }
 
 interface Hour1400File {
