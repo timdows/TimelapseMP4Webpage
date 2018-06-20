@@ -20,6 +20,16 @@ namespace TimelapseMP4Webpage.Controllers
 			return Json(images);
 		}
 
+		public IActionResult GetThumbnailList()
+		{
+			var images = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), Hour1400Path))
+				.Select(item => Hour1400File.CreateImageFileDetails(item))
+				.Where(item => item.FileName.EndsWith("_thumb.jpg"))
+				.OrderBy(item => item.DateTaken)
+				.ToList();
+			return Json(images);	
+		}
+
 		public IActionResult GetImage(string fileName)
 		{
 			var fullPath = Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), Hour1400Path), fileName);

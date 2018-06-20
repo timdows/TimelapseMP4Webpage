@@ -1,0 +1,5 @@
+.title 
+	h1 One image per day
+
+.thumbnails
+	.thumbnail(*ngFor="let hour1400File of hour1400Files") {{hour1400File.dateTaken | date:'d MMM y'}}

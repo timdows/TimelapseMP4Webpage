@@ -21,7 +21,7 @@ namespace TimelapseMP4Webpage.Models
 			DateTime dateTaken;
 
 			if (!DateTime.TryParseExact(
-				fileName.Replace(".jpg", string.Empty), 
+				fileName.Replace("_thumb", string.Empty).Replace(".jpg", string.Empty), 
 				"yyyy-MM-ddTHHmmss", 
 				System.Globalization.CultureInfo.InvariantCulture, 
 				System.Globalization.DateTimeStyles.None,
