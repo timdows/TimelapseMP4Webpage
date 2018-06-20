@@ -7,8 +7,10 @@ import { HttpClient } from '@angular/common/http';
 	styleUrls: ['./hour1400-images.component.scss']
 })
 export class Hour1400ImagesComponent implements OnInit {
+	
 	private baseUrl: string;
 	public hour1400Files: Hour1400File[];
+	public flyoutImage: Hour1400File;
 
 	constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
 		this.baseUrl = baseUrl;
@@ -27,8 +29,17 @@ export class Hour1400ImagesComponent implements OnInit {
 
 	showImage(hour1400File: Hour1400File) {
 		var fileName = hour1400File.fileName.replace("_thumb", "");
-		window.open(`${this.baseUrl}api/Hour1400/GetImage?fileName=${fileName}`);
+		return `${this.baseUrl}api/Hour1400/GetImage?fileName=${fileName}`;
 	}
+
+	clickImage(hour1400File: Hour1400File) {
+		this.flyoutImage = hour1400File;
+	}
+
+	removeFlyout() {
+		this.flyoutImage = null;
+	}
+
 }
 
 interface Hour1400File {
