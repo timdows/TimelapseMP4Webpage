@@ -10,6 +10,7 @@ namespace TimelapseMP4Webpage.Controllers
 	{
 		const string MP4Path = "MP4";
 
+		[HttpGet]
 		public IActionResult GetList()
 		{
 			var videos = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), MP4Path));

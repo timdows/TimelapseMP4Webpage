@@ -14,6 +14,7 @@ namespace TimelapseMP4Webpage.Controllers
 	{
 		const string Hour1400Path = "Hour1400Files";
 
+		[HttpGet]
 		public IActionResult GetList()
 		{
 			var images = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), Hour1400Path))
@@ -22,6 +23,7 @@ namespace TimelapseMP4Webpage.Controllers
 			return Json(images);
 		}
 
+		[HttpGet]
 		public IActionResult GetThumbnailList()
 		{
 			var images = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), Hour1400Path))
@@ -32,6 +34,7 @@ namespace TimelapseMP4Webpage.Controllers
 			return Json(images);
 		}
 
+		[HttpGet]
 		public IActionResult GetImage(string fileName)
 		{
 			var fullPath = Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), Hour1400Path), fileName);
@@ -44,6 +47,7 @@ namespace TimelapseMP4Webpage.Controllers
 			return NotFound();
 		}
 
+		[HttpPost]
 		public async Task<IActionResult> Upload(IFormFile file, string fileName, string secret)
 		{
 			// full path to file in temp location
