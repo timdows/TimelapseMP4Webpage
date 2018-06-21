@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TimelapseMP4Webpage.Models;
 
 namespace TimelapseMP4Webpage
 {
@@ -27,6 +28,8 @@ namespace TimelapseMP4Webpage
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+			services.Configure<WebpageSettings>(Configuration.GetSection("WebpageSettings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
