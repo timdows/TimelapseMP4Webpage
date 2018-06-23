@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,6 +14,12 @@ namespace TimelapseMP4Webpage.Controllers
 	public class Hour1400Controller : Controller
 	{
 		const string Hour1400Path = "Hour1400Files";
+		private readonly WebpageSettings _webpageSettings;
+
+		public Hour1400Controller(IOptions<WebpageSettings> webpageSettings)
+		{
+			_webpageSettings = webpageSettings.Value;
+		}
 
 		[HttpGet]
 		public IActionResult GetList()
@@ -50,6 +57,11 @@ namespace TimelapseMP4Webpage.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Upload(IFormFile file, string fileName, string secret)
 		{
+			if (!string.Equals(_webpageSettings.Hour1400UploadSecret, secret))
+			{
+				return Unauthorized();
+			}
+
 			// full path to file in temp location
 			var filePath = Path.GetTempFileName();
 
