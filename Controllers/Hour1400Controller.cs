@@ -22,6 +22,7 @@ namespace TimelapseMP4Webpage.Controllers
 		}
 
 		[HttpGet]
+		[Produces(typeof(List<Hour1400File>))]
 		public IActionResult GetList()
 		{
 			var images = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), Hour1400Path))
@@ -31,6 +32,7 @@ namespace TimelapseMP4Webpage.Controllers
 		}
 
 		[HttpGet]
+		[Produces(typeof(List<Hour1400File>))]
 		public IActionResult GetThumbnailList()
 		{
 			var images = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), Hour1400Path))

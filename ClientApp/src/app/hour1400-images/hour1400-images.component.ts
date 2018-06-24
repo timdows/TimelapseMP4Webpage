@@ -1,5 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Hour1400File } from '../../api/model/hour1400File';
+import { Hour1400Service } from '../../api';
 
 @Component({
 	selector: 'app-hour1400-images',
@@ -14,10 +16,10 @@ export class Hour1400ImagesComponent implements OnInit {
 
 	constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
 		this.baseUrl = baseUrl;
-
-		http.get<Hour1400File[]>(this.baseUrl + 'api/Hour1400/GetThumbnailList').subscribe(result => {
+		let hour1400Service = new Hour1400Service(http, this.baseUrl.replace(/\/+$/, ""), null);
+		hour1400Service.apiHour1400GetThumbnailListGet().subscribe(result => {
 			this.hour1400Files = result;
-		}, error => console.error(error));
+		});
 	}
 
 	ngOnInit() {
@@ -40,9 +42,4 @@ export class Hour1400ImagesComponent implements OnInit {
 		this.flyoutImage = null;
 	}
 
-}
-
-interface Hour1400File {
-	fileName: string;
-	dateTaken: Date;
 }
