@@ -20,6 +20,16 @@
                 "reveal": "always",
                 "panel": "new"
             }
+        },
+		{
+            "label": "Upload published webpage",
+            "type": "shell",
+            "command": "./.vscode/upload.ps1",
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
         }
 
     ]
