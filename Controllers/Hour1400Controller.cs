@@ -38,7 +38,7 @@ namespace TimelapseMP4Webpage.Controllers
 			var images = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), Hour1400Path))
 				.Select(item => Hour1400File.CreateImageFileDetails(item))
 				.Where(item => item.FileName.EndsWith("_thumb.jpg"))
-				.OrderBy(item => item.DateTaken)
+				.OrderByDescending(item => item.DateTaken)
 				.ToList();
 			return Json(images);
 		}
